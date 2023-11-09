@@ -1,0 +1,7 @@
+button{
+    background-color: rgb(96, 187, 223);
+    display:flex; 
+    justify-content:center;
+    align-content: center;
+    font-weight: bold;
+}

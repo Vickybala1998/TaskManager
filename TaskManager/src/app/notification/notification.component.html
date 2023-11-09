@@ -1,0 +1,22 @@
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>title</th>
+                <th>message</th>
+                <th>Date</th>
+                <th>Assigned By</th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            <tr *ngFor="let notificationDetail of notificationDetails">
+                <td>{{notificationDetail.title}}</td>
+                <td>{{notificationDetail.message}}</td>
+                <td>{{notificationDetail.date | date:'yyyy-MM-dd'}}</td>
+                <td>{{notificationDetail.assignedBy}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

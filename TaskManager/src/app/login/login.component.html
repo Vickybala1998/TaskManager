@@ -1,0 +1,26 @@
+<div style="height: 99vh;width: 99vw;margin-top:10%">
+    <div><h2 style="text-align: center"><b>Login</b></h2></div>
+    <div style="display:flex; justify-content:center;align-content: center">
+            <form [formGroup]="login">
+                <div>
+                    <label>Email</label>
+                    <input type="text" class="textbox" formControlName="Email">
+                </div>
+                <br><br>
+                <div>
+                    <label>Password</label>
+                    <input type="text" class="textbox" formControlName="Password">
+                </div>
+                <br><br>
+                <div>
+                    <input type="button" class=" button btn btn-primary btn-lg" value="Login" (click)="userLogin()"><br><br>
+                </div>
+                <div>
+                    <a routerLink="/Registration">Create New Account</a>
+                </div>
+            </form>
+    </div>
+</div>
+
+
+

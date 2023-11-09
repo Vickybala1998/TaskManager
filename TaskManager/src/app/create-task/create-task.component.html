@@ -1,0 +1,40 @@
+<div>
+    <form [formGroup]="taskForm">
+        <div style="justify-content:right;margin-right: 20px;font-weight: bold;">
+        <button class="closeButton" (click)="closeDialog()">X</button>
+    </div>
+        <div>
+            <label>Heading</label>
+            <input type="text" placeholder="Enter the Heading" formControlName="heading" value={{taskDetails.heading}}>
+        </div><br>
+        <div>
+            <label>Description</label>
+            <textarea placeholder="Enter the Description" formControlName="description" value={{taskDetails.description}}></textarea>
+        </div><br>
+        <div>
+            <label>Start Date</label>
+            <input type="date" placeholder="Select the date" formControlName="startDate" [value]="taskDetails.startDate | date:'yyyy-MM-dd'">
+        </div><br>
+        <div>
+            <label>End Date</label>
+            <input type="date" placeholder="Select the date" formControlName="endDate" [value]="taskDetails.endDate | date:'yyyy-MM-dd'">
+        </div><br>
+        <div>
+            <label>Status</label>
+            <select placeholder="Select the Status" formControlName="status" value={{taskDetails.status}}>
+                <option>To-Do</option>
+                <option>In Progress</option>
+                <option>Completetd</option>
+                <option>Cancelled</option>
+            </select>
+        </div><br>
+        <div>
+            <label>Assigned To</label>
+            <input type="text" placeholder="Enter the Assignee" formControlName="assignedTo" value={{taskDetails.assignedTo}}>
+        </div><br>
+        <div>
+            <button *ngIf="isCreate" class="btn button" (click)="createTask()"><mat-icon>add</mat-icon>Create Task</button>
+            <button *ngIf="isUpdate" class="btn button" (click)="updateTask()"><mat-icon>add</mat-icon>Update Task</button>
+        </div><br>
+    </form>
+</div>

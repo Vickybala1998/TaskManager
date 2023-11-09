@@ -1,0 +1,51 @@
+<div style="height: 99vh;width: 99vw; ;;">
+    <div><h1 style="text-align: center"><b>USER ACCOUNT DETAILS</b></h1></div>
+    <div style="display:flex; justify-content:center;align-content: center">
+        <form [formGroup]="updateUserDetails">
+                <div style="display:flex;flex-direction: row; justify-content:center;align-content: center">
+                    <div id="user-details">
+                        <div>
+                            <label>EmployeeName</label>
+                            <input type="text" class="textbox" value={{UserDetails.employeeName}}  formControlName="userName">
+                        </div>
+                        <br><br>
+                        <div>
+                            <label>Email</label>
+                            <input type="text" class="textbox" value="{{UserDetails.email}}" formControlName="email">
+                        </div>
+                        <br><br>
+                        <div>
+                            <label>Department</label>
+                            <select value="{{UserDetails.department}}" formControlName="department">
+                                <option>please select</option>
+                                <option>Developer</option>
+                                <option>QA Team</option>
+                                <option>Admin</option>
+                            </select>
+                        </div>
+                        <br><br>
+                        <div>
+                            <label>Position</label>
+                                <select  value="{{UserDetails.role}}" formControlName="role">
+                                    <option>please select</option>
+                                    <option>Developer 1</option>
+                                    <option>QA 1</option>
+                                    <option>Admin 1</option>
+                                </select>
+                        </div>
+                        <br><br>
+                        <input type="button" class="btn btn-primary btn-lg" value="Edit" (click)="editDetails()" [disabled]="isEditDisabled">
+                        <input type="button" class="btn btn-primary btn-lg" value="update" (click)="updateDetails()" [disabled]="isDisabled">
+                    </div>
+                    <div id="user-image">
+                        <iframe class="image-container" [src]="image" scrolling="no"></iframe>
+                        <br><br>
+                        <input type="file" (change)="onSelectedImage($event)" *ngIf="isEnabled" formControlName="imageFile">
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+</div>
+
+

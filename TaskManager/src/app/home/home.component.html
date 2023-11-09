@@ -1,0 +1,32 @@
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Heading</th>
+                <th>Description</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Status</th>
+                <th>Assigned To</th>
+                <th></th>
+            </tr>
+        </thead>
+    
+        <tbody>
+            <tr *ngFor="let taskdetails of taskDetails">
+                <td>{{taskdetails.heading}}</td>
+                <td>{{taskdetails.description}}</td>
+                <td>{{taskdetails.startDate | date:'yyyy-MM-dd'}}</td>
+                <td>{{taskdetails.endDate | date:'yyyy-MM-dd'}}</td>
+                <td>{{taskdetails.status}}</td>
+                <td>{{taskdetails.assignedTo}}</td>
+                <td><button style="border:none;background: none;" class="bi bi-eye-fill" (click)="viewTask(taskdetails.id)"></button><span></span>
+                <button style="border:none;background: none;" class="bi bi-pencil-square" (click)="updateTask(taskdetails.id)"></button>
+                <button style="border:none;background: none;" class="bi bi-trash-fill" (click)="deleteTask(taskdetails.id)"></button>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<button (click)="openPopup()">Create Task</button>
+

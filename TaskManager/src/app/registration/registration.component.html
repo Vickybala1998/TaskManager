@@ -1,0 +1,52 @@
+<div style="height: 99vh;width: 99vw;">
+  <div><h1 style="text-align: center"><b>USER REGISTRATION</b></h1></div>
+    <div style="display:flex; justify-content:center;align-content: center">
+     <form [formGroup]="registrationForm">
+        <div style="display:flex;flex-direction: row; justify-content:center;align-content: center;margin:5px">
+            <div id="user-details">
+                <div>
+                    <label>User Name</label>
+                    <input type="text" class="textbox" placeholder="Enter the UserName" formControlName="userName">
+                </div>
+                <br>
+                <div>
+                    <label>Email</label>
+                    <input type="text" class="textbox" placeholder="Enter the Email" formControlName="email">
+                </div>
+                <br>
+                <div>
+                    <label>Password</label>
+                    <input type="password" class="textbox" placeholder="Enter the Password" formControlName="password">
+                </div>
+                <br>
+                <div>
+                    <label>Department</label>
+                    <select formControlName="department">
+                        <option>please select</option>
+                        <option>Developer</option>
+                        <option>QA Team</option>
+                        <option>Admin</option>
+                    </select>
+                </div>
+                <br>
+                <div>
+                    <label>Position</label>
+                    <select formControlName="role">
+                        <option>please select</option>
+                        <option>Developer 1</option>
+                        <option>QA 1</option>
+                        <option>Admin 1</option>
+                    </select>
+                </div><br>
+            <div>
+                <input type="button" class=" button btn btn-primary btn-lg " value="Register" (click)="register()">
+            </div>
+            </div>
+            <div id="user-image">
+                <iframe [src]="selectedImage" class="image-container" scrolling="no"></iframe>
+                <input type="file" (change)="onSelectedImage($event)" formControlName="imageFile">
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
