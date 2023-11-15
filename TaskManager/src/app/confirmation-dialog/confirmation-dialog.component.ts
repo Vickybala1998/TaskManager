@@ -8,8 +8,18 @@ import { MatDialog,MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialo
 })
 export class ConfirmationDialogComponent {
 
+  isNobutton:boolean=true;
+
   constructor(private dialog:MatDialogRef<ConfirmationDialogComponent>, @Inject(MAT_DIALOG_DATA) public data:any){
 
+    console.log(data.title)
+    if(data.title=='Task Creation'){
+       this.isNobutton=false;
+    }
+    else{
+      this.isNobutton=true;
+    }
+      
   }
   onYesClick(){
     this.dialog.close(0);

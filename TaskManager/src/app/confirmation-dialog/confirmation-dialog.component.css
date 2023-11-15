@@ -1,7 +1,9 @@
-button{
+.button{
     background-color: rgb(96, 187, 223);
     display:flex; 
     justify-content:center;
     align-content: center;
     font-weight: bold;
+    margin-left: 5px;
+    margin-bottom: 5px;
 }

@@ -1,6 +1,6 @@
 <h2>{{data.title}}</h2>
 <p>{{data.message}}</p>
-<div>
-    <button (click)="onYesClick()">yes</button>
-    <button (click)="onNoClick()">no</button>
+<div style="display: flex;">
+    <button class="btn button" (click)="onYesClick()">Yes</button><br>
+    <button class="btn button" *ngIf='isNobutton' (click)="onNoClick()">No</button>
 </div>

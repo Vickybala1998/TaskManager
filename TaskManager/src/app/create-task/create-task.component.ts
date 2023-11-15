@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import{MatDialog,MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { TaskManagerServiceService } from '../task-manager-service.service';
 import { Router } from '@angular/router';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-create-task',
@@ -65,9 +66,18 @@ export class CreateTaskComponent {
       notificationForm.append('assignedBy','admin')
       console.log(notificationForm);
       this.service.createNotification(notificationForm).subscribe();
-      //this.route.navigateByUrl('Home').then((x)=>{
-        //window.location.reload();
-      //})
+      const dialogref=this.dialog.open(ConfirmationDialogComponent,
+        {
+          width:'350px',
+          data:{'title':'Task Creation','message':"Task Created Successfully"}});
+
+          dialogref.afterClosed().subscribe((result)=>{
+            this.route.navigateByUrl('Home').then((x)=>{
+        window.location.reload();
+      })
+          })
+  
+      
     }
    
 })}

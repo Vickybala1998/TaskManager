@@ -15,14 +15,17 @@ div{
 }
 
 label{
-    width: 20vh !important;
+    width: 10vw !important;
     display: inline-block;
     text-align: right;
-    font-size: 3vh;
+    font-size: 2vw;
+    font-weight: bold;
     margin-right: 10px;
     font-family: 'Times New Roman';
     align-content: center;
 }
+
+
 
 input,textarea,select{
     height: 5vh;
@@ -56,4 +59,21 @@ textarea{
     background-color: black;
     border-radius: 50%;
     color: white;
+}
+
+@media only screen and (max-width: 600px) {
+    form{
+        width: 100vw;
+    }
+    label{
+        font-size: 15px;
+    }
+    input,textarea,select{
+        height: 20px;
+        width: 100px;
+        margin-right: 10px;
+        font-size: 10px;
+        font-family: 'Times New Roman';
+    }
+    
 }

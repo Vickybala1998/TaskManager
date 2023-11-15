@@ -3,6 +3,7 @@ import{MatDialog} from '@angular/material/dialog';
 import{CreateTaskComponent} from '../create-task/create-task.component'
 import { TaskManagerServiceService } from '../task-manager-service.service';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation
 export class HomeComponent {
 
   taskDetails:any=[];
-  constructor(private dialog:MatDialog, private service:TaskManagerServiceService){
+  constructor(private dialog:MatDialog, private service:TaskManagerServiceService, private router: Router){
     this.service.getTaskDetails().subscribe((x)=>{
       console.log(x)
       this.taskDetails=x;
@@ -37,11 +38,17 @@ export class HomeComponent {
     const dialogref=this.dialog.open(ConfirmationDialogComponent,
       {
         width:'350px',
-        data:{'title':'conformation','message':"Are you sure want to delete the task?"}});
+        data:{'title':"confirmation",'message':"Are you sure want to delete the task?"}});
 
         dialogref.afterClosed().subscribe((result)=>{
           if(result==0){
-            this.service.deleteTaskDetails(id).subscribe();
+            this.service.deleteTaskDetails(id).subscribe((x)=>{
+              if(x.status==200){
+                this.router.navigateByUrl('Home').then((x)=>{
+                  window.location.reload();})
+              }
+            });
+            
           }
           else{
             dialogref.close();
